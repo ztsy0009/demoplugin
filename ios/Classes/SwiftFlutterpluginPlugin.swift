@@ -9,6 +9,13 @@ public class SwiftFlutterpluginPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    result("iOS " + UIDevice.current.systemVersion)
+  if(call.method.elementsEqual("showAleartDialog")){
+  let arguments =call.arguments as? NSDictionary
+  let msg = arguments["Hello World...iOS"] as String
+  result(msg)
+  }
+  result("Hello World...iOS")
+
+    //result("iOS " + UIDevice.current.systemVersion)
   }
 }
